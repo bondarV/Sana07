@@ -10,21 +10,22 @@ namespace Abstraction.Products
 {
     public class Drones : Product
     {
-        public string Country { get; set; }
+        public string CountryProducing { get; set; }
         public short Generation { get; set; }
-        public short YearsGeneration { get; set; }
+        public short YearsUsing { get; set; }
 
-        public Drones(string name, float price, short count, string country, short generation, short yearsGeneration)
+        public Drones(string name, float price, short count, string countryProducing, short generation, short yearsUsing)
             : base(name, price, count)
         {
-            Country = country;
+            CountryProducing = countryProducing;
             Generation = generation;
-            YearsGeneration = yearsGeneration;
+            YearsUsing = yearsUsing;
         }
 
         public override string Display()
         {
-            return $"Назва товару:{Name},ціна {Name}(-a/y) становить {Price},к-сть:{Count}";
+            return $"Назва товару:{Name},ціна {Name}(-a/y) становить {Price},к-сть:{Count},країна-виробник {CountryProducing},покоління {Generation},термін використання(роки) {YearsUsing}";
+
         }
     }
 }
