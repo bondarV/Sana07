@@ -14,7 +14,7 @@ namespace Abstraction.Products
         public short Generation { get; set; }
         public short YearsUsing { get; set; }
 
-        public Drones(string name, float price, short count, string countryProducing, short generation, short yearsUsing)
+        public Drones(string name, float price, int count, string countryProducing, short generation, short yearsUsing)
             : base(name, price, count)
         {
             CountryProducing = countryProducing;
@@ -24,7 +24,7 @@ namespace Abstraction.Products
 
         public override string Display()
         {
-            return $"Назва товару:{Name},ціна {Name}(-a/y) становить {Price},к-сть:{Count},країна-виробник {CountryProducing},покоління {Generation},термін використання(роки) {YearsUsing}";
+            return $"Назва товару:{Name},ціна {Name}(-a/y/и) становить {Price},к-сть:{Count},країна-виробник {CountryProducing},покоління {Generation},термін використання(роки) {YearsUsing}";
 
         }
     }

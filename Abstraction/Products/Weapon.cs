@@ -11,7 +11,7 @@ namespace Abstraction.Products
         public string WayOfInfluencingTheTarget {  get; set; }
         public string TypeOfCaliber {  get; set; }
 
-        public Weapon(string name, float price, short count,string wayOfInfluencingTheTarget, string typeOfCaliber)
+        public Weapon(string name, float price, int count,string wayOfInfluencingTheTarget, string typeOfCaliber)
             :base(name,price,count)
             {
             WayOfInfluencingTheTarget = wayOfInfluencingTheTarget;
@@ -20,7 +20,7 @@ namespace Abstraction.Products
 
         public override string Display()
         {
-            return $"Назва товару:{Name},ціна {Name}(-a/y) становить {Price},к-сть:{Count},способіб впливу на ціль {WayOfInfluencingTheTarget},тип калібру {TypeOfCaliber}";
+            return $"Назва товару:{Name},ціна {Name}(-a/y/и) становить {Price},к-сть:{Count},способіб впливу на ціль {WayOfInfluencingTheTarget},тип калібру {TypeOfCaliber}";
 
         }
 

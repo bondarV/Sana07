@@ -1,19 +1,39 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Abstraction.Products
 {
     public abstract class Product
     {
-        public string Name { get; set; }
-        public float Price { get; set; }
-        public short Count {  get; set; }
+        private float _price;
+        private int _count;
 
-        public Product(string name, float price, short count)
+        public string Name { get; set; }
+
+        public float Price
+        {
+            get => _price;
+            set
+            {
+                if (value > 0)
+                    _price = value;
+                else
+                    throw new Exception("Ціна має бути додатньою");
+            }
+        }
+
+        public int Count
+        {
+            get => _count;
+            set
+            {
+                if (value > 0)
+                    _count = value;
+                else
+                    throw new Exception("К-сть предметів має бути додатньою");
+            }
+        }
+
+        public Product(string name, float price, int count)
         {
             Name = name;
             Price = price;
@@ -28,6 +48,5 @@ namespace Abstraction.Products
         }
 
         public abstract string Display();
-
     }
 }

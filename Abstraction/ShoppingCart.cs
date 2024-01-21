@@ -13,10 +13,15 @@ namespace Abstraction.Products
 
         public void AddProduct (Product product,short amount)
         {
-            for(int i = 1;  i <= amount; i++) { 
-            products.Add(product);
-                product.Count--;
-            }
+            if (amount > 0)
+                for (int i = 1; i <= amount; i++)
+                {
+                    products.Add(product);
+                    product.Count--;
+                }
+            else if (product.Count < amount)
+                throw new ShoppingCartException(product.Name, product.Count, amount, "На складі товару більш не виявилося");
+            else throw new Exception("Потрібно вказати натуральне число,яке може бути на складі");
         }
 
         public string ShowInfoAboutAllProducts()
