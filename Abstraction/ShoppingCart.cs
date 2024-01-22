@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
@@ -11,17 +12,27 @@ namespace Abstraction.Products
     {
         List<Product> products = new List<Product>(3);
 
-        public void AddProduct (Product product,short amount)
+        public void AddProduct (Product product,int amount)
         {
             if (amount > 0)
-                for (int i = 1; i <= amount; i++)
+            {
+                if (product.Count >= amount)
                 {
-                    products.Add(product);
-                    product.Count--;
+                    for (int i = 1; i <= amount; i++)
+                    {
+                        products.Add(product);
+                        product.Count--;
+                    }
                 }
-            else if (product.Count < amount)
-                throw new ShoppingCartException(product.Name, product.Count, amount, "На складі товару більш не виявилося");
-            else throw new Exception("Потрібно вказати натуральне число,яке може бути на складі");
+                else
+                {
+                    throw new ShoppingCartException(product.Name, product.Count, amount, "На складі товару більше не виявилося");
+                }
+            }
+            else
+            {
+                throw new Exception("Потрібно вказати натуральне число, яке може бути на складі");
+            }
         }
 
         public string ShowInfoAboutAllProducts()
@@ -33,7 +44,6 @@ namespace Abstraction.Products
                 foreach (Product product in products)
                     cartInfo.AppendLine(product.Display());
             }
-
             else cartInfo.Append("Ваш кошик наразі порожній");
             return cartInfo.ToString();
         }
@@ -45,7 +55,7 @@ namespace Abstraction.Products
                 foreach (Product product in products)
                     sum += product.Price;
             }
-            return $"Загальна сума ваших покупок становить {sum}";
+            return $"Загальна сума ваших покупок становить {sum} грн";
         }
 
     }

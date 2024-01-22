@@ -9,7 +9,7 @@ namespace Abstraction.Products
 
         public string Name { get; set; }
 
-        public float Price
+        public float  Price
         {
             get => _price;
             set
@@ -26,7 +26,7 @@ namespace Abstraction.Products
             get => _count;
             set
             {
-                if (value > 0)
+                if (value >= 0)
                     _count = value;
                 else
                     throw new Exception("К-сть предметів має бути додатньою");

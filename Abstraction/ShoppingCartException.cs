@@ -10,8 +10,8 @@ namespace Abstraction
     {
         public string Name {  get; set; }
         public int Availability {  get; set; }
-        public short CountThingsWhichCustomerWantBuy {  get; set; }
-        public ShoppingCartException(string name,int availability, short countThingsWhichCustomerWantBuy, string message)
+        public int CountThingsWhichCustomerWantBuy {  get; set; }
+        public ShoppingCartException(string name,int availability, int countThingsWhichCustomerWantBuy, string message)
             :base(message)
         {
             Name = name;

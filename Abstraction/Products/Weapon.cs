@@ -20,7 +20,7 @@ namespace Abstraction.Products
 
         public override string Display()
         {
-            return $"Назва товару:{Name},ціна {Name}(-a/y/и) становить {Price},к-сть:{Count},способіб впливу на ціль {WayOfInfluencingTheTarget},тип калібру {TypeOfCaliber}";
+            return $"Назва товару:{Name},ціна {Name}(-a/y/и) становить {Price},к-сть даного товару на складі:{Count},спосіб впливу на ціль {WayOfInfluencingTheTarget},тип калібру {TypeOfCaliber}";
 
         }
 

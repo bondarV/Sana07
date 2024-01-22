@@ -15,9 +15,9 @@ namespace Abstraction.Products
         public float AverageReviewRating {  get => _averageReviewRating;
             set
             {
-                if (value >= 5 && value <= 0 || value >= 10 && value <= 0)
+                if (value <= 5 && value >= 0 )
                     _averageReviewRating = value;
-                else throw new Exception("Рейтинг має бути за 5-ти/10-ти бальною системою");
+                else throw new Exception("Рейтинг має бути за 5-ти бальною системою");
             }
         }
 
@@ -31,7 +31,7 @@ namespace Abstraction.Products
 
         public override string Display()
         {
-            return $"Назва товару:{Name},ціна {Name}(-a/y/и) становить {Price},к-сть:{Count},для кого призначенний:{ObjectUsing},матеріал {Material},середня оцінка від експертів {AverageReviewRating}";
+            return $"Назва товару:{Name},ціна {Name}(-a/y/и) становить {Price},к-сть даного товару на складі:{Count},для кого призначенний:{ObjectUsing},матеріал {Material},середня оцінка від експертів {AverageReviewRating}";
 
         }
 
